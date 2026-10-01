@@ -107,7 +107,12 @@
   .status{background:var(--evergreen);color:var(--mist);border-top:0}
   section.status + section{border-top:0}
   .status p{color:rgba(232,237,231,.78);font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.6;max-width:44ch}
-  .status .two{align-items:end}
+  .start{list-style:none;margin:0;padding:0;counter-reset:s}
+  .start li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;padding:1.4rem 0;border-top:1px solid var(--rule-dark)}
+  .start li:first-child{border-top:0;padding-top:0}
+  .start li::before{content:counter(s);font-family:var(--display);font-weight:300;font-size:1.6rem;line-height:1.1;color:var(--brass)}
+  .start h3{color:var(--mist)}
+  .start p{margin:0;font-size:1.02rem;color:rgba(232,237,231,.72)}
 
   .cta h2{max-width:18ch}
 
@@ -132,14 +137,14 @@
         <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#163A31"/><rect x="6" y="21" width="20" height="5" fill="#2F6B57"/><rect x="11" y="15" width="15" height="5" fill="#8FB5A0"/><rect x="17" y="9" width="9" height="5" fill="#C9A35B"/></svg>
         Brand Escalator
       </a>
-      <a class="link" href="#early-list">Join the early list</a>
+      <a class="link" href="#talk">Book an introduction</a>
     </nav>
 
     <div class="hero-grid">
       <div>
         <h1>Your brand, run without you in the manager's chair.</h1>
         <p class="lead">Brand Escalator is an operating system for ecommerce brands. AI managers run the daily work, people check it against written standards, and you get one briefing a day.</p>
-        <a class="btn btn-brass" href="#early-list">Join the early list</a>
+        <a class="btn btn-brass" href="#talk">Book an introduction</a>
       </div>
 
       <svg class="stair" viewBox="0 0 560 400" role="img" aria-label="A staircase of four steps: the daily work at the bottom, then managers, then a chief of staff, with you at the top">
@@ -220,11 +225,11 @@
 
   <section>
     <div class="wrap">
-      <h2>What we hold to.</h2>
+      <h2>Four things we won't trade.</h2>
       <ul class="principles">
         <li><h3>Built once, kept running.</h3><p>Build it properly once and it runs for years. We don't patch the same problem twice.</p></li>
         <li><h3>Say what happened.</h3><p>Reports include what went wrong. Every pound of spend has to earn its place.</p></li>
-        <li><h3>Craft in the small things.</h3><p>A refund reply, a price change, a product page. Each has a written standard that gets better with use.</p></li>
+        <li><h3>Craft in the small things.</h3><p>A returns email, a product photo, a delivery note. Each has a written standard that gets better with use.</p></li>
         <li><h3>Time is the point.</h3><p>Evenings back. Time with family, and attention for whatever matters more to you than the business.</p></li>
       </ul>
     </div>
@@ -232,16 +237,21 @@
 
   <section class="status">
     <div class="wrap two">
-      <h2>Proven on our own brands first.</h2>
-      <p>Brand Escalator runs the brands we operate today. It's in a six-month proving run, and we'll open it to other brands once it has run ours without us.</p>
+      <h2>We start with how you work today.</h2>
+      <ol class="start">
+        <li><div><h3>We map your operation</h3><p>Every channel, tool, supplier and person, and where your hours go now.</p></div></li>
+        <li><div><h3>We write your standards</h3><p>How a reply should sound, when a price can change, what an ad has to earn. Written down, so the work can be checked against them.</p></div></li>
+        <li><div><h3>Managers go live one at a time</h3><p>Each one proves itself before the next begins, and you can see every check it makes.</p></div></li>
+        <li><div><h3>You step back</h3><p>From here, the briefing is how you run the business.</p></div></li>
+      </ol>
     </div>
   </section>
 
-  <section class="cta" id="early-list">
+  <section class="cta" id="talk">
     <div class="wrap">
-      <h2>Want to know when it opens?</h2>
-      <p class="muted">Tell us about your brand. We'll write back when there's room.</p>
-      <p style="margin-top:2rem"><a class="btn btn-ink" href="mailto:milan@brandescalator.com?subject=Brand%20Escalator%20early%20list">Join the early list</a></p>
+      <h2>Let's talk about your brand.</h2>
+      <p class="muted">Tell us what you sell, where you sell it, and what's taking up your time. We'll reply personally.</p>
+      <p style="margin-top:2rem"><a class="btn btn-ink" href="mailto:milan@brandescalator.com?subject=Introduction%20to%20Brand%20Escalator">Book an introduction</a></p>
     </div>
   </section>
 </main>
