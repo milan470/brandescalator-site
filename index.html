@@ -116,6 +116,28 @@
   .start p{margin:0;font-size:1.02rem;color:rgba(232,237,231,.72)}
 
   .cta h2{max-width:18ch}
+  button.btn{border:0;cursor:pointer}
+  .nav button.link{background:none;border:0;border-bottom:1px solid var(--rule-dark);cursor:pointer;font:inherit;font-size:.95rem;color:var(--mist);opacity:.8;padding:0 0 2px}
+  .nav button.link:hover{opacity:1;border-color:var(--brass)}
+
+  /* Contact dialog */
+  dialog.reach{border:0;padding:0;border-radius:20px;width:min(30rem,calc(100vw - 2rem));background:var(--paper);color:var(--ink);box-shadow:0 40px 80px -30px rgba(14,43,36,.45)}
+  dialog.reach::backdrop{background:rgba(14,43,36,.55);backdrop-filter:blur(3px)}
+  .reach-inner{padding:clamp(1.5rem,4vw,2.25rem)}
+  .reach h2{font-size:clamp(1.7rem,3vw,2.1rem);margin:0 0 .5rem}
+  .reach p{color:var(--ink-soft);margin:0 0 1.5rem}
+  .reach label{display:block;font-size:.88rem;font-weight:600;margin:0 0 .35rem}
+  .reach input{display:block;width:100%;font:inherit;font-size:1rem;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:10px;padding:.8rem .9rem;margin:0 0 1.1rem}
+  .reach input:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:transparent}
+  .reach .hp{position:absolute;left:-9999px}
+  .reach .row-end{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.4rem}
+  .reach .fine{font-size:.8rem;color:var(--ink-soft);margin:0}
+  .reach .close{position:absolute;top:.9rem;right:.9rem;width:2.4rem;height:2.4rem;border-radius:50%;border:0;background:transparent;font-size:1.5rem;line-height:1;color:var(--ink-soft);cursor:pointer}
+  .reach .close:hover{background:var(--mist);color:var(--ink)}
+  .reach .err{color:#8A3B2B;font-size:.9rem;margin:.8rem 0 0}
+  .reach .done h2{margin-bottom:.6rem}
+  @media (prefers-reduced-motion:no-preference){dialog.reach[open]{animation:pop .28s cubic-bezier(.2,.8,.2,1)}}
+  @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
 
   /* Editorial plates */
   h1,h2,h3{text-wrap:balance}
@@ -150,14 +172,14 @@
         <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#163A31"/><rect x="6" y="21" width="20" height="5" fill="#2F6B57"/><rect x="11" y="15" width="15" height="5" fill="#8FB5A0"/><rect x="17" y="9" width="9" height="5" fill="#C9A35B"/></svg>
         Brand Escalator
       </a>
-      <a class="link" href="#talk">Book an introduction</a>
+      <button type="button" class="link" data-open-form>Reach out to us</button>
     </nav>
 
     <div class="hero-grid">
       <div>
         <h1>Your brand, run without you in the manager's chair.</h1>
         <p class="lead">Brand Escalator is an operating system for ecommerce brands. AI managers run the daily work, people check it against written standards, and you get one briefing a day.</p>
-        <a class="btn btn-brass" href="#talk">Book an introduction</a>
+        <button type="button" class="btn btn-brass" data-open-form>Reach out to us</button>
       </div>
 
       <svg class="stair" viewBox="0 0 560 400" role="img" aria-label="A staircase of four steps: the daily work at the bottom, then managers, then a chief of staff, with you at the top">
@@ -273,8 +295,8 @@
   <section class="cta" id="talk">
     <div class="wrap">
       <h2>Let's talk about your brand.</h2>
-      <p class="muted">Tell us what you sell, where you sell it, and what's taking up your time. We'll reply personally.</p>
-      <p style="margin-top:2rem"><a class="btn btn-ink" href="mailto:milan@brandescalator.com?subject=Introduction%20to%20Brand%20Escalator">Book an introduction</a></p>
+      <p class="muted">Leave your name, email and phone number, and someone will be in touch.</p>
+      <p style="margin-top:2rem"><button type="button" class="btn btn-ink" data-open-form>Reach out to us</button></p>
     </div>
   </section>
 </main>
@@ -282,5 +304,53 @@
 <footer>
   <div class="wrap"><span>© 2026 Brand Escalator</span><span>Designed and built in London. Set in Bricolage Grotesque and Hanken Grotesk.</span></div>
 </footer>
+
+<dialog class="reach" id="reach" aria-labelledby="reach-title">
+  <div class="reach-inner">
+    <button type="button" class="close" aria-label="Close" data-close-form>&times;</button>
+    <form id="reach-form" novalidate>
+      <h2 id="reach-title">Reach out to us</h2>
+      <p>Leave your details and someone will be in touch.</p>
+      <label for="f-name">Name</label>
+      <input id="f-name" name="name" type="text" autocomplete="name" required>
+      <label for="f-email">Email</label>
+      <input id="f-email" name="email" type="email" autocomplete="email" required>
+      <label for="f-tel">Phone</label>
+      <input id="f-tel" name="phone" type="tel" autocomplete="tel" required>
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="row-end">
+        <p class="fine">We only use these details to contact you.</p>
+        <button type="submit" class="btn btn-ink">Send</button>
+      </div>
+      <p class="err" id="reach-err" role="alert" hidden></p>
+    </form>
+    <div class="done" id="reach-done" hidden>
+      <h2 tabindex="-1">Thank you.</h2>
+      <p>We've got your details. Someone will be in touch with you shortly.</p>
+      <button type="button" class="btn btn-ink" data-close-form>Close</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var d=document.getElementById('reach'), f=document.getElementById('reach-form'), done=document.getElementById('reach-done'), err=document.getElementById('reach-err');
+  document.querySelectorAll('[data-open-form]').forEach(function(b){b.addEventListener('click',function(){f.hidden=false;done.hidden=true;err.hidden=true;d.showModal();document.getElementById('f-name').focus();});});
+  d.querySelectorAll('[data-close-form]').forEach(function(b){b.addEventListener('click',function(){d.close();});});
+  d.addEventListener('click',function(e){if(e.target===d)d.close();});
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    if(!f.checkValidity()){err.textContent='Please add your name, a valid email and a phone number.';err.hidden=false;return;}
+    var btn=f.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='Sending';
+    var data=Object.fromEntries(new FormData(f).entries());
+    data._subject='New enquiry from brandescalator.com: '+data.name; data._template='table'; data._captcha='false';
+    fetch('https://formsubmit.co/ajax/milan@brandescalator.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)==='false')throw j;});})
+      .then(function(){f.reset();f.hidden=true;done.hidden=false;done.querySelector('h2').focus();})
+      .catch(function(){err.textContent="That didn't send. Please email milan@brandescalator.com instead.";err.hidden=false;})
+      .finally(function(){btn.disabled=false;btn.textContent='Send';});
+  });
+})();
+</script>
 </body>
 </html>
