@@ -11,6 +11,7 @@
 <meta property="og:url" content="https://brandescalator.com/">
 <meta name="theme-color" content="#0E2B24">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E2B24'/%3E%3Crect x='6' y='21' width='20' height='5' fill='%232F6B57'/%3E%3Crect x='11' y='15' width='15' height='5' fill='%238FB5A0'/%3E%3Crect x='17' y='9' width='9' height='5' fill='%23C9A35B'/%3E%3C/svg%3E">
+<link rel="preload" as="image" href="img/stair.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -116,6 +117,17 @@
 
   .cta h2{max-width:18ch}
 
+  /* Editorial plates */
+  h1,h2,h3{text-wrap:balance}
+  p{text-wrap:pretty}
+  .plate{margin:0;border-top:0}
+  .plate img{display:block;width:100%;height:clamp(320px,62vh,720px);object-fit:cover}
+  .plate + section{border-top:0}
+  .photo{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  .problem-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2.5rem,6vw,6rem);align-items:center}
+  .head-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2.5rem,6vw,6rem);align-items:end;margin-bottom:1rem}
+  .head-grid h2{margin:0}
+
   footer{padding:2.2rem 0 2.8rem;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:.9rem}
   footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
@@ -123,7 +135,8 @@
     .hero-grid,.two{grid-template-columns:1fr}
     .hero-grid{align-items:start}
     .stair{max-width:520px}
-    .areas,.principles{grid-template-columns:1fr}
+    .areas,.principles,.problem-grid,.head-grid{grid-template-columns:1fr}
+    .plate img{height:46vh}
     .brief .row{grid-template-columns:1fr;gap:.25rem}
   }
 </style>
@@ -158,10 +171,15 @@
 </div>
 
 <main>
+  <figure class="plate"><img style="object-position:50% 60%" src="img/stair.webp" width="2400" height="1339" alt="A stone and oak staircase rising beside a deep green wall, with a brass handrail" decoding="async"></figure>
+
   <section>
-    <div class="wrap">
+    <div class="wrap problem-grid">
+      <div>
       <p class="statement">Hiring was meant to give you time back. Then you spent it checking every reply draft, every ad change, every alert at 9pm, because nobody else could judge it.</p>
       <p class="statement"><strong>You didn't build a team. You became its manager.</strong></p>
+      </div>
+      <img class="photo" src="img/desk.webp" width="1600" height="1194" alt="A desk late at night, a phone glowing face down beside a closed laptop and a cup of tea" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -225,7 +243,10 @@
 
   <section>
     <div class="wrap">
-      <h2>Four things we won't trade.</h2>
+      <div class="head-grid">
+        <h2>Four things we won't trade.</h2>
+        <img class="photo" src="img/standards.webp" width="1600" height="1194" alt="An open notebook of handwritten notes beside a brass pen and ruler" loading="lazy" decoding="async">
+      </div>
       <ul class="principles">
         <li><h3>Built once, kept running.</h3><p>Build it properly once and it runs for years. We don't patch the same problem twice.</p></li>
         <li><h3>Say what happened.</h3><p>Reports include what went wrong. Every pound of spend has to earn its place.</p></li>
@@ -246,6 +267,8 @@
       </ol>
     </div>
   </section>
+
+  <figure class="plate"><img style="object-position:50% 78%" src="img/orchard.webp" width="2400" height="1339" alt="An English orchard at golden hour, a table laid for supper under the apple trees" loading="lazy" decoding="async"></figure>
 
   <section class="cta" id="talk">
     <div class="wrap">
