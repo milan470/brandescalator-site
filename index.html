@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Escalator</title>
+<meta name="description" content="Brand Escalator builds and runs online stores, marketplace accounts and the automated operations behind them.">
+<link rel="canonical" href="https://brandescalator.com/">
+<meta property="og:title" content="Brand Escalator">
+<meta property="og:description" content="We build and run ecommerce brands: stores, marketplaces, growth and the automated operations behind them.">
+<meta property="og:url" content="https://brandescalator.com/">
+<meta name="theme-color" content="#17302A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2317302A'/%3E%3Crect x='6' y='21' width='8' height='5' fill='%23A9C9A4'/%3E%3Crect x='12' y='15' width='8' height='5' fill='%235E9473'/%3E%3Crect x='18' y='9' width='8' height='5' fill='%23E2A72E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F4EE;
+    --ink:#17302A;
+    --ink-soft:#4A5E57;
+    --canopy:#2F6B4F;
+    --leaf:#5E9473;
+    --sage:#A9C9A4;
+    --fruit:#E2A72E;
+    --rule:#CBD6CC;
+    --measure:62ch;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Bricolage Grotesque",system-ui,sans-serif;
+    font-size:1.0625rem;line-height:1.6;font-optical-sizing:auto;
+  }
+  a{color:var(--canopy);text-underline-offset:.18em}
+  a:hover{color:var(--ink)}
+  a:focus-visible{outline:3px solid var(--fruit);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:72rem;margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
+
+  header.site{padding:1.75rem 0}
+  .mark{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.05rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+  .mark svg{width:28px;height:28px}
+
+  .hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:end;padding-top:clamp(3rem,9vw,7rem);padding-bottom:clamp(3rem,7vw,5.5rem)}
+  h1{
+    margin:0;font-weight:700;font-size:clamp(2.6rem,6.4vw,5.4rem);
+    line-height:.98;letter-spacing:-.035em;font-variation-settings:"opsz" 96;max-width:12ch;
+  }
+  .lead{margin:1.75rem 0 0;max-width:46ch;font-size:clamp(1.12rem,1.6vw,1.3rem);line-height:1.5;color:var(--ink-soft)}
+
+  .steps{width:100%;height:auto;display:block}
+  .steps rect{transform-box:fill-box;transform-origin:right}
+  @media (prefers-reduced-motion:no-preference){
+    .steps rect{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+    .steps rect:nth-child(2){animation-delay:.12s}
+    .steps rect:nth-child(3){animation-delay:.24s}
+    .steps rect:nth-child(4){animation-delay:.36s}
+    .steps rect:nth-child(5){animation-delay:.48s}
+  }
+  @keyframes rise{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  section{padding:clamp(3rem,7vw,5rem) 0;border-top:1px solid var(--rule)}
+  h2{margin:0 0 2rem;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.15;letter-spacing:-.02em;font-weight:700}
+  .areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem clamp(2rem,5vw,4.5rem);margin:0;padding:0;list-style:none}
+  .areas h3{margin:0 0 .5rem;font-size:1.2rem;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:.6rem}
+  .areas h3::before{content:"";width:.7rem;height:.7rem;background:var(--leaf);flex:none}
+  .areas li:nth-child(2) h3::before{background:var(--canopy)}
+  .areas li:nth-child(3) h3::before{background:var(--sage)}
+  .areas li:nth-child(4) h3::before{background:var(--fruit)}
+  .areas p{margin:0;max-width:44ch;color:var(--ink-soft)}
+
+  .how{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(1.5rem,5vw,4.5rem)}
+  .how p{margin:0 0 1.1rem;max-width:var(--measure)}
+  .how p:last-child{margin-bottom:0}
+
+  .contact p{margin:0;font-size:clamp(1.25rem,2.4vw,1.75rem);letter-spacing:-.015em;line-height:1.35;max-width:30ch}
+  .contact a{font-weight:500}
+
+  footer{padding:2rem 0 2.5rem;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:.92rem}
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;align-items:start}
+    .steps{max-width:320px}
+    .areas{grid-template-columns:1fr}
+    .how{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="Brand Escalator home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#17302A"/><rect x="6" y="21" width="8" height="5" fill="#A9C9A4"/><rect x="12" y="15" width="8" height="5" fill="#5E9473"/><rect x="18" y="9" width="8" height="5" fill="#E2A72E"/></svg>
+      Brand Escalator
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <h1>We build and run ecommerce brands.</h1>
+      <p class="lead">Online stores, marketplace accounts, advertising and the automated operations behind them, run as one team for the brands we work with.</p>
+    </div>
+    <svg class="steps" viewBox="0 0 400 300" role="img" aria-label="A staircase rising to the right">
+      <rect x="0"   y="240" width="400" height="60"  fill="#A9C9A4"/>
+      <rect x="80"  y="180" width="320" height="60"  fill="#7FAE8A"/>
+      <rect x="160" y="120" width="240" height="60"  fill="#5E9473"/>
+      <rect x="240" y="60"  width="160" height="60"  fill="#2F6B4F"/>
+      <rect x="320" y="0"   width="80"  height="60"  fill="#E2A72E"/>
+    </svg>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>What we run</h2>
+      <ul class="areas">
+        <li>
+          <h3>Online stores</h3>
+          <p>We design and build fast Shopify stores, then keep them running: product pages, subscriptions, customer accounts and checkout.</p>
+        </li>
+        <li>
+          <h3>Marketplaces</h3>
+          <p>We manage Amazon and other marketplace accounts, from listings and compliance to pricing and stock.</p>
+        </li>
+        <li>
+          <h3>Advertising and email</h3>
+          <p>We run search, shopping, social and lifecycle email, and judge each channel by the profit it brings back.</p>
+        </li>
+        <li>
+          <h3>Automated operations</h3>
+          <p>We build AI-assisted systems for customer service, reporting, stock planning and bookkeeping, with people checking the work.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap how">
+      <h2>How we work</h2>
+      <div>
+        <p>We act as the operating team behind a brand. The brand keeps its name and its products. We bring the stores, the systems and the people who run them day to day.</p>
+        <p>Everything we build is ours and gets better with each brand we run, so every brand we work with gets the benefit of what we learned on the others.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p>Email <a href="mailto:milan@brandescalator.com">milan@brandescalator.com</a> to talk about your brand.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Brand Escalator, London</div>
+</footer>
+</body>
+</html>
